@@ -12,6 +12,8 @@
         <link rel="apple-touch-icon" sizes="120x120" href="icons/touch-icon-iphone-retina-120x120.png">
         <link rel="apple-touch-icon" sizes="152x152" href="icons/touch-icon-ipad-retina-152x152.png">
         <link rel="manifest" href="manifest.json">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&subset=latin,latin-ext" rel="stylesheet" type="text/css"> -->
+        <link href="data/font/PressStart2P.ttf" rel="stylesheet" type="text/css">
     </head>
     <body>
         <!-- Canvas placeholder -->
@@ -19,24 +21,24 @@
 
         <!-- melonJS Library -->
         <!-- build:js js/app.min.js -->
-        <script type="text/javascript" src="lib/melonJS.js"></script>
+        <script src="lib/melonJS.js"></script>
 
         <!-- Plugin(s) -->
-        <script type="text/javascript" src="lib/plugins/debug/debugPanel.js"></script>
+        <script src="lib/plugins/debug/debugPanel.js"></script>
 
         <!-- Game Scripts -->
-        <script type="text/javascript" src="js/game.js"></script>
-        <script type="text/javascript" src="build/js/resources.js"></script>
+        <script src="js/game.js"></script>
+        <script src="build/js/resources.js"></script>
 
-        <script type="text/javascript" src="js/entities/entities.js"></script>
-        <script type="text/javascript" src="js/entities/HUD.js"></script>
+        <script src="js/entities/entities.js"></script>
+        <script src="js/entities/HUD.js"></script>
 
-        <script type="text/javascript" src="js/screens/title.js"></script>
-        <script type="text/javascript" src="js/screens/play.js"></script>
+        <script src="js/screens/title.js"></script>
+        <script src="js/screens/play.js"></script>
         <!-- /build -->
 
         <!-- Bootstrap -->
-        <script type="text/javascript">
+        <script>
             window.onReady(function onReady() {
                 game.onload();
             });
