@@ -1,28 +1,29 @@
-
 /* Game namespace */
 var game = {
-
-    // an object where to store game information
-    data : {
-        // score
-        score : 0
-    },
-
-
     // Run on page load.
     "onload" : function () {
         // Initialize the video.
-        if (!me.video.init(960, 640, {wrapper : "screen", scale : "auto"})) {
+        if (!me.video.init(640, 480, {
+            wrapper: "screen",
+            // scale : 2.0,
+            scale: "auto",
+            scaleMethod: "fit"
+            //     "fit" => Letterboxed; content is scaled to design aspect ratio
+            //     "fill-max" => Canvas is resized to fit maximum design resolution; content is scaled to design aspect ratio
+            //     "flex-height" => Canvas height is resized to fit; content is scaled to design aspect ratio
+            //     "flex-width" => Canvas width is resized to fit; content is scaled to design aspect ratio
+            //     "stretch" => Canvas is resized to fit; content is scaled to screen aspect ratio
+        })) {
             alert("Your browser does not support HTML5 canvas.");
             return;
         }
 
-        // add "#debug" to the URL to enable the debug Panel
-        if (me.game.HASH.debug === true) {
-            window.onReady(function () {
-                me.plugin.register.defer(this, me.debug.Panel, "debug", me.input.KEY.V);
-            });
-        }
+        me.debug.renderHitBox = true;
+        me.debug.renderVelocity = true;
+        me.debug.renderQuadTree = true;
+
+        me.sys.fps = 10;
+        me.sys.updatesPerSecond = 10;
 
         // Initialize the audio.
         me.audio.init("mp3,ogg");
@@ -34,11 +35,12 @@ var game = {
 
     // Run on game resources loaded.
     "loaded" : function () {
-        me.state.set(me.state.MENU, new game.TitleScreen());
+        // me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
 
         // add our player entity in the entity pool
         me.pool.register("mainPlayer", game.PlayerEntity);
+        me.pool.register("CursorEntity", game.CursorEntity);
 
         // Start the game.
         me.state.change(me.state.PLAY);

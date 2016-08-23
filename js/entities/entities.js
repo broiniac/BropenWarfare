@@ -6,7 +6,7 @@ game.PlayerEntity = me.Entity.extend({
     /**
      * constructor
      */
-    init:function (x, y, settings) {
+    init: function (x, y, settings) {
         // call the constructor
         this._super(me.Entity, 'init', [x, y , settings]);
     },
@@ -14,8 +14,7 @@ game.PlayerEntity = me.Entity.extend({
     /**
      * update the entity
      */
-    update : function (dt) {
-
+    update: function (dt) {
         // apply physics to the body (this moves the entity)
         this.body.update(dt);
 
@@ -30,7 +29,7 @@ game.PlayerEntity = me.Entity.extend({
      * colision handler
      * (called when colliding with other objects)
      */
-    onCollision : function (response, other) {
+    onCollision: function (response, other) {
         // Make all other objects solid
         return true;
     }

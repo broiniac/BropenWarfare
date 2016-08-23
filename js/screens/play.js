@@ -3,20 +3,30 @@ game.PlayScreen = me.ScreenObject.extend({
      *  action to perform on state change
      */
     onResetEvent: function() {
-        // reset the score
-        game.data.score = 0;
+        // clear the background
+        // me.game.world.addChild(new me.ColorLayer("background", "#000000", 0));
 
-        // Add our HUD to the game world, add it last so that this is on top of the rest.
-        // Can also be forced by specifying a "Infinity" z value to the addChild function.
-        this.HUD = new game.HUD.Container();
-        me.game.world.addChild(this.HUD);
+        // load a level
+        // me.levelDirector.loadLevel("demo");
+        me.levelDirector.loadLevel("demo2");
+
+        var cursor = me.pool.pull("CursorEntity");
+        me.game.world.addChild(cursor, 10);
+        me.game.viewport.follow(cursor);
     },
 
     /**
      *  action to perform when leaving this screen (state change)
      */
     onDestroyEvent: function() {
-        // remove the HUD from the game world
-        me.game.world.removeChild(this.HUD);
+    },
+
+    /**
+     * #TODO: This is temporary. Remove it someday.
+     */
+    randomInt: function (min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
     }
 });
