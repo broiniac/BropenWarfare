@@ -4,6 +4,7 @@ var game = {
     // an object where to store game information
     data : {
         turn: 0,
+        moves: 3,
     },
 
     // Run on page load.
@@ -54,6 +55,7 @@ var game = {
         // add our player entity in the entity pool
         me.pool.register("mainPlayer", game.PlayerEntity);
         me.pool.register("CursorEntity", game.CursorEntity);
+        me.pool.register("VehicleEntity", game.VehicleEntity);
 
         // Start the game.
         me.state.change(me.state.PLAY);

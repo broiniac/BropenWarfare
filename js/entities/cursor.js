@@ -55,6 +55,19 @@ game.CursorEntity = me.Entity.extend({
     },
 
     onClick: function(e) {
+        if (!this.target || this.target.moved || game.data.moves <= 0) {
+            return true;
+        }
+
+        console.log("e: ", e);
+        console.log("this: ", this);
+        console.log(this.layer);
+
+        this.target.pos.x = this.pos.x;
+        this.target.pos.y = this.pos.y;
+        this.target.moved = true;
+        game.data.moves--;
+
         return false;
     },
 
@@ -80,5 +93,12 @@ game.CursorEntity = me.Entity.extend({
                 // console.log("tile.row: ", tile.row, ", tile.col: ", tile.col);
             }
         }
+    },
+
+    clearTarget: function() {
+        if(this.target) {
+            this.target.renderable.setCurrentAnimation("vehicle");
+        }
+        this.target = undefined;
     },
 });

@@ -18,7 +18,14 @@ game.UI.ButtonUIEndTurn = game.UI.ButtonUI.extend({
     },
 
     onClick: function(event) {
+        var vehicles = me.game.world.getChildByName("vehicle");
+        for (var i = 0, length = vehicles.length; i < length; i++) {
+            vehicles[i].moved = false;
+        }
         game.data.turn++;
+        game.data.moves = 3;
+
+        me.game.world.getChildByName("cursor")[0].clearTarget();
 
         return this._super(game.UI.ButtonUI, "onClick", [ event ]);
     }

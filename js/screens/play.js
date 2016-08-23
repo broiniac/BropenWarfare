@@ -17,6 +17,11 @@ game.PlayScreen = me.ScreenObject.extend({
         me.game.world.addChild(cursor, 10);
         me.game.viewport.follow(cursor);
 
+        me.game.world.addChild(me.pool.pull("VehicleEntity", 1, 3));
+        me.game.world.addChild(me.pool.pull("VehicleEntity", 2, 6));
+        me.game.world.addChild(me.pool.pull("VehicleEntity", 3, 6));
+        me.game.world.addChild(me.pool.pull("VehicleEntity", 4, 6));
+
         this.createUI();
     },
 
@@ -58,6 +63,7 @@ game.PlayScreen = me.ScreenObject.extend({
         // this.UI.addChild(new game.UI.Panel("right", 200, me.game.viewport.origHeight, "yellow"));
 
         this.UI.addChild(new game.UI.Counter(0, 0, "game.data.turn"));
+        this.UI.addChild(new game.UI.Counter(0, 10, "game.data.moves"));
 
         me.game.world.addChild(this.UI);
     },
