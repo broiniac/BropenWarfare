@@ -1,13 +1,15 @@
 # Gameplay
-[ ] Turns
-[ ] Units
+[X] Turns
+[X] Units
+  [X] Moves limit
+  [ ] Reach type (land/water)
   [ ] Move range
   [ ] Actions (move, attack)
   [ ] Morale
 
 # Viewport
 [ ] Better boudries settings (distance from screen edge)
-  [ ] Depends on HUD.Frame location  
+  [ ] Depends on UI.Panel location
 [ ] Move via scroll
 [ ] Move via arrows
 [ ] Move via ctrl-click
@@ -25,3 +27,12 @@
     [ ] production
     [ ] experience/leveling
   [ ] Technology tree
+
+# Code stuff
+[ ] Some consistent coding way
+[ ] Reusable code (MelonJS plugins?)
+
+# Other
+[ ] RTFM
+[ ] Learn how to do JS, then rewrite whole game (or even MelonJS)
+[ ] Heavyweight MelonJS framework extenstion with lots of unnessessery things inside
